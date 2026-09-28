@@ -604,6 +604,36 @@
             margin-bottom: 0.25rem;
         }
 
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .company-header .experience-company {
+            margin-bottom: 0;
+        }
+
+        .company-logo {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
         .experience-role {
             color: var(--text-secondary);
             margin-bottom: 1rem;
@@ -726,6 +756,108 @@
             background: #000;
             border: 1px solid var(--border);
             margin-bottom: 1.5rem;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: border-color 0.3s ease, opacity 0.3s ease;
+        }
+
+        .project-gallery img:hover {
+            border-color: var(--accent);
+            opacity: 0.85;
+        }
+
+        .gallery-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 5, 0.92);
+            z-index: 600;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .gallery-overlay.open {
+            display: flex;
+        }
+
+        .gallery-viewer {
+            position: relative;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .gallery-viewer img {
+            display: block;
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border: 1px solid var(--border);
+        }
+
+        .gallery-caption {
+            margin-top: 1rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: -3rem;
+            right: 0;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            width: 2.25rem;
+            height: 2.25rem;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .gallery-close:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(23, 20, 18, 0.8);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            width: 2.5rem;
+            height: 2.5rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .gallery-nav:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .gallery-prev {
+            left: 0.75rem;
+        }
+
+        .gallery-next {
+            right: 0.75rem;
         }
 
         .project-metrics {
@@ -991,6 +1123,24 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             transition: all 0.3s ease;
+        }
+
+        .institution-logo {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .institution-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .education-card:hover {
@@ -1425,7 +1575,10 @@
         <div class="experience-timeline">
             <div class="experience-item">
                 <div class="experience-date">May 2026 — Present</div>
-                <h3 class="experience-company">Eulerity</h3>
+                <div class="company-header">
+                    <div class="company-logo"><img src="logo-eulerity.png" alt="Eulerity logo"></div>
+                    <h3 class="experience-company">Eulerity</h3>
+                </div>
                 <p class="experience-role">Product Manager · New York City, USA</p>
                 <ul class="experience-bullets">
                     <li>Own product strategy and execution for a B2B SaaS marketing automation platform, increasing platform adoption by 15%.</li>
@@ -1447,7 +1600,10 @@
             </div>
             <div class="experience-item">
                 <div class="experience-date">Jul 2023 — Jul 2024</div>
-                <h3 class="experience-company">Jaguar Land Rover</h3>
+                <div class="company-header">
+                    <div class="company-logo"><img src="logo-jlr.png" alt="Jaguar Land Rover logo"></div>
+                    <h3 class="experience-company">Jaguar Land Rover</h3>
+                </div>
                 <p class="experience-role">Product Engineer · United Kingdom</p>
                 <ul class="experience-bullets">
                     <li>Worked within 50+ member Agile squads, spending six months each in the Suspension Controls and ADAS teams, building embedded systems in MATLAB and Simulink.</li>
@@ -1468,7 +1624,10 @@
             </div>
             <div class="experience-item">
                 <div class="experience-date">Jul 2024 — Sep 2024</div>
-                <h3 class="experience-company">Insigneo Institute</h3>
+                <div class="company-header">
+                    <div class="company-logo"><img src="logo-insigneo.png" alt="Insigneo Institute logo"></div>
+                    <h3 class="experience-company">Insigneo Institute</h3>
+                </div>
                 <p class="experience-role">Data Analyst Intern · United Kingdom</p>
                 <ul class="experience-bullets">
                     <li>Built iterative workflows in MATLAB studying local sensitivity and bifurcation analysis for inflammation dynamics in osteoarthritis.</li>
@@ -1483,7 +1642,10 @@
             </div>
             <div class="experience-item">
                 <div class="experience-date">Jun 2023 — Jul 2023</div>
-                <h3 class="experience-company">Sheffield Undergraduate Research</h3>
+                <div class="company-header">
+                    <div class="company-logo"><img src="logo-sheffield.png" alt="University of Sheffield logo"></div>
+                    <h3 class="experience-company">Sheffield Undergraduate Research</h3>
+                </div>
                 <p class="experience-role">Machine Learning Intern · United Kingdom</p>
                 <ul class="experience-bullets">
                     <li>Applied K-Means clustering on 1,000+ temperature profiles to optimise High Speed Sintering (3D printing) cycles.</li>
@@ -1555,6 +1717,12 @@
                 <video class="project-video" controls preload="metadata">
                     <source src="agentic-ai-editor-demo.mp4" type="video/mp4">
                 </video>
+                <div class="project-gallery" data-gallery="agentic">
+                    <img src="hackathon-presenting.jpg" alt="Presenting the Agentic AI Editor at the Google Cloud Hackathon" onclick="openGallery('agentic', 0)">
+                    <img src="hackathon-team.jpg" alt="Team photo at the Google Cloud Hackathon, Columbia Business School" onclick="openGallery('agentic', 1)">
+                    <img src="hackathon-crowd.jpg" alt="Hackathon crowd at Columbia Business School with Google" onclick="openGallery('agentic', 2)">
+                    <img src="hackathon-signage.jpg" alt="Build with AI New York Hackathon signage, Columbia Business School and Google" onclick="openGallery('agentic', 3)">
+                </div>
                 <div class="project-metrics">
                     <div class="metric">
                         <div class="metric-value">300+</div>
@@ -1641,19 +1809,28 @@
         <div class="education-grid">
             <div class="education-card reveal">
                 <div class="education-year">2025 — 2026 (Expected)</div>
-                <h3 class="education-school">Columbia University</h3>
+                <div class="company-header">
+                    <div class="institution-logo"><img src="logo-columbia.png" alt="Columbia University logo"></div>
+                    <h3 class="education-school">Columbia University</h3>
+                </div>
                 <p class="education-degree">M.S. Technology Management · GPA 4.11/4.0</p>
                 <p class="education-location">New York, USA</p>
             </div>
             <div class="education-card reveal">
                 <div class="education-year">2021 — 2025</div>
-                <h3 class="education-school">University of Sheffield</h3>
+                <div class="company-header">
+                    <div class="institution-logo"><img src="logo-sheffield.png" alt="University of Sheffield logo"></div>
+                    <h3 class="education-school">University of Sheffield</h3>
+                </div>
                 <p class="education-degree">BEng (Hons) Computer Systems Engineering with a Year in Industry and Study Abroad · GPA 3.71/4.0</p>
                 <p class="education-location">Sheffield, UK</p>
             </div>
             <div class="education-card reveal">
                 <div class="education-year">2022 — 2023</div>
-                <h3 class="education-school">Nanyang Technological University</h3>
+                <div class="company-header">
+                    <div class="institution-logo"><img src="logo-ntu.png" alt="Nanyang Technological University logo"></div>
+                    <h3 class="education-school">Nanyang Technological University</h3>
+                </div>
                 <p class="education-degree">Exchange Program</p>
                 <p class="education-location">Singapore</p>
             </div>
@@ -1785,6 +1962,16 @@
         </div>
     </div>
 
+    <div class="gallery-overlay" id="galleryOverlay" onclick="if(event.target === this) closeGallery()">
+        <div class="gallery-viewer">
+            <button type="button" class="gallery-close" onclick="closeGallery()" aria-label="Close gallery">✕</button>
+            <button type="button" class="gallery-nav gallery-prev" onclick="galleryStep(-1)" aria-label="Previous photo">‹</button>
+            <button type="button" class="gallery-nav gallery-next" onclick="galleryStep(1)" aria-label="Next photo">›</button>
+            <img id="galleryImage" src="" alt="">
+            <p class="gallery-caption" id="galleryCaption"></p>
+        </div>
+    </div>
+
     <script>
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
@@ -1839,8 +2026,55 @@
         }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeCaseStudy();
+            if (e.key === 'Escape') {
+                closeCaseStudy();
+                closeGallery();
+            }
+            if (document.getElementById('galleryOverlay').classList.contains('open')) {
+                if (e.key === 'ArrowLeft') galleryStep(-1);
+                if (e.key === 'ArrowRight') galleryStep(1);
+            }
         });
+
+        // Photo galleries
+        const galleries = {
+            agentic: [
+                { src: 'hackathon-presenting.jpg', caption: 'Presenting the Agentic AI Editor at the Google Cloud Hackathon' },
+                { src: 'hackathon-team.jpg', caption: 'The team at the Google Cloud Hackathon, Columbia Business School' },
+                { src: 'hackathon-crowd.jpg', caption: 'Build with AI: New York Hackathon, Columbia Business School x Google' },
+                { src: 'hackathon-signage.jpg', caption: 'Build with AI: New York Hackathon signage' }
+            ]
+        };
+
+        let currentGallery = null;
+        let currentIndex = 0;
+
+        function openGallery(name, index) {
+            currentGallery = name;
+            currentIndex = index;
+            renderGalleryImage();
+            document.getElementById('galleryOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function galleryStep(direction) {
+            const images = galleries[currentGallery];
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            renderGalleryImage();
+        }
+
+        function renderGalleryImage() {
+            const images = galleries[currentGallery];
+            const item = images[currentIndex];
+            document.getElementById('galleryImage').src = item.src;
+            document.getElementById('galleryImage').alt = item.caption;
+            document.getElementById('galleryCaption').textContent = item.caption;
+        }
     </script>
 </body>
 </html>
