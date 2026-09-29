@@ -150,6 +150,7 @@
         .hero-image-wrapper {
             position: relative;
             flex-shrink: 0;
+            margin-right: 3rem;
         }
 
         .timeline {
@@ -263,10 +264,10 @@
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
             opacity: 0;
             animation: fadeUp 0.8s ease forwards;
-            animation-delay: 0.2s;
+            animation-delay: 0.5s;
         }
 
         .hero h1 {
@@ -274,10 +275,10 @@
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 400;
             line-height: 1.1;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
             opacity: 0;
             animation: fadeUp 0.8s ease forwards;
-            animation-delay: 0.4s;
+            animation-delay: 0.2s;
         }
 
         .hero h1 .highlight {
@@ -289,13 +290,13 @@
         }
 
         .hero-description {
-            font-size: 1rem;
-            color: var(--text-secondary);
+            font-size: 1.15rem;
+            color: var(--text-primary);
             max-width: 600px;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeUp 0.8s ease forwards;
-            animation-delay: 0.6s;
+            animation-delay: 0.4s;
         }
 
         .now-badge {
@@ -312,7 +313,7 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeUp 0.8s ease forwards;
-            animation-delay: 0.5s;
+            animation-delay: 0.65s;
         }
 
         .now-dot {
@@ -489,7 +490,7 @@
         .ticker-track {
             display: flex;
             width: max-content;
-            animation: tickerScroll 16s linear infinite;
+            animation: tickerScroll 28s linear infinite;
         }
 
         .metrics-ticker:hover .ticker-track {
@@ -598,9 +599,9 @@
         }
 
         .experience-company {
-            font-family: 'Fraunces', serif;
-            font-size: 1.75rem;
-            font-weight: 400;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 0.25rem;
         }
 
@@ -646,7 +647,7 @@
         }
 
         .experience-bullets {
-            color: var(--text-muted);
+            color: var(--text-primary);
             max-width: 1200px;
             font-size: 1rem;
             list-style: none;
@@ -1108,7 +1109,7 @@
 
         .skill-list li {
             padding: 0.5rem 0;
-            color: var(--text-secondary);
+            color: var(--accent);
             font-size: 1rem;
             display: flex;
             align-items: center;
@@ -1181,12 +1182,37 @@
         .education-degree {
             color: var(--text-secondary);
             font-size: 0.9rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .education-location {
             font-size: 0.8rem;
             color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .education-gpa {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .education-transcript {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .education-transcript:hover {
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         /* Contact Section */
@@ -1439,20 +1465,19 @@
         <div class="hero-accent"></div>
         <div class="hero-container">
             <div class="hero-content">
-                <p class="hero-label">Product Management · AI/ML · Strategy</p>
                 <h1>Mayank <span class="highlight">Sewatkar</span></h1>
                 <p class="hero-description">
-                    Product Manager building AI-powered workflows at Eulerity. Columbia MS candidate
-                    and engineer with a BEng (Hons) in Computer Systems Engineering, production
-                    experience at Jaguar Land Rover, and global exposure across four countries.
+                    I'm a Product Manager who ships AI features, not just roadmaps.
+                    Engineer-turned-PM: I build what I plan, fast.
                 </p>
+                <p class="hero-label">Product Management · AI/ML · Strategy</p>
                 <div class="now-badge">
                     <span class="now-dot"></span>
                     Recent: Shipped internal platform efficiency changes and GEO strategy at Eulerity
                 </div>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                    <a href="#experience" class="btn btn-secondary">View My Work</a>
+                    <a href="#projects" class="btn btn-secondary">See What I've Shipped</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
@@ -1506,14 +1531,15 @@
         </div>
         <div class="about-grid">
             <div class="about-text">
-                <p>I have lived and worked across four countries, growing up and completing school in India,
-                studying for my undergraduate degree in Sheffield, spending an exchange year in Singapore,
-                working at Jaguar Land Rover, and now completing my master's at Columbia in New York. Each
-                move has exposed me to different cultures, working styles, and ways of solving problems.</p>
-                <p>I am currently a Product Manager at Eulerity, shipping AI features for the marketing
-                platform, and completing my M.S. in Technology Management at Columbia. Outside of class,
-                I lead business development for the Venture Capital Club and marketing for the
-                Product Management Club.</p>
+                <p>I've lived and worked across four countries, and each move has sharpened
+                my ability to solve problems from different perspectives. I completed school
+                in India, earned my undergraduate degree in Sheffield, and spent an exchange
+                year in Singapore before joining Jaguar Land Rover as a production engineer.
+                I am now pursuing my master's at Columbia University in New York.</p>
+                <p>Today, I am a Product Manager at Eulerity, where I ship AI features for
+                our marketing platform, and I am completing my M.S. in Technology Management
+                at Columbia. Outside of class, I lead business development for the Venture
+                Capital Club and handle marketing for the Product Management Club.</p>
             </div>
             <div class="metrics-ticker reveal">
                 <div class="ticker-track">
@@ -1597,11 +1623,11 @@
                 </div>
                 <p class="experience-role">Product Manager · New York City, USA</p>
                 <ul class="experience-bullets">
-                    <li>Own product strategy and execution for a B2B SaaS marketing automation platform, increasing platform adoption by 15%.</li>
-                    <li>Shipped 10+ feature requests in 3 months, improving UX and increasing campaign engagement by 30%.</li>
-                    <li>Supported development of an AI Brand Creative Agent and a Responder Agent for automated review analysis.</li>
-                    <li>Supported Generative Engine Optimization (GEO) strategy across LLM platforms, focused on visibility and share of voice.</li>
-                    <li>Improved internal workflows by adding platform features that cut note-taking and task-list creation from hours to minutes, increasing team efficiency.</li>
+                    <li>Own product strategy for a B2B SaaS marketing platform. Drove a 15% lift in platform adoption.</li>
+                    <li>Shipped 10+ features in 3 months. Improved UX and lifted campaign engagement 30%.</li>
+                    <li>Supported an AI Brand Creative Agent. Also built a Responder Agent for automated review analysis.</li>
+                    <li>Supported GEO strategy across LLM platforms, focused on visibility and share of voice.</li>
+                    <li>Built internal tools that cut note-taking and task-list creation from hours to minutes.</li>
                 </ul>
                 <div class="experience-tags">
                     <span class="tag">Product Strategy</span>
@@ -1622,10 +1648,10 @@
                 </div>
                 <p class="experience-role">Product Engineer · United Kingdom</p>
                 <ul class="experience-bullets">
-                    <li>Worked within 50+ member Agile squads, spending six months each in the Suspension Controls and ADAS teams, building embedded systems in MATLAB and Simulink.</li>
-                    <li>Modelled software architecture for the 2028 MLA Range Rover suspension platform, a £4.2M program deployed on 100K+ vehicles.</li>
-                    <li>Delivered Cruise Control software for the ADAS team, aligning with KPIs and collaborating with NVIDIA's engineering team.</li>
-                    <li>Drove cross-functional delivery across engineering, safety, and QA leads, managing 100+ active change requests.</li>
+                    <li>Worked in 50+ member Agile squads. Spent six months each on Suspension Controls and ADAS, building embedded systems in MATLAB and Simulink.</li>
+                    <li>Modeled software architecture for the 2028 MLA Range Rover suspension platform, a £4.2M program deployed on 100K+ vehicles.</li>
+                    <li>Delivered Cruise Control software for the ADAS team. Aligned with KPIs while collaborating with NVIDIA's engineers.</li>
+                    <li>Drove cross-functional delivery across engineering, safety, and QA. Managed 100+ active change requests.</li>
                 </ul>
                 <div class="experience-tags">
                     <span class="tag">Agile</span>
@@ -1646,8 +1672,8 @@
                 </div>
                 <p class="experience-role">Data Analyst Intern · United Kingdom</p>
                 <ul class="experience-bullets">
-                    <li>Built iterative workflows in MATLAB studying local sensitivity and bifurcation analysis for inflammation dynamics in osteoarthritis.</li>
-                    <li>Translated 400+ hours of simulation output (400K+ data points) into decision-ready summaries, enabling researchers to make allocation decisions 3x faster than prior manual review cycles.</li>
+                    <li>Built iterative MATLAB workflows for osteoarthritis research, studying local sensitivity and bifurcation analysis for inflammation dynamics.</li>
+                    <li>Translated 400+ hours of simulation output (400K+ data points) into decision-ready summaries. Researchers made allocation decisions 3x faster.</li>
                 </ul>
                 <div class="experience-tags">
                     <span class="tag">Data Analysis</span>
@@ -1664,7 +1690,7 @@
                 </div>
                 <p class="experience-role">Machine Learning Intern · United Kingdom</p>
                 <ul class="experience-bullets">
-                    <li>Applied K-Means clustering on 1,000+ temperature profiles to optimise High Speed Sintering (3D printing) cycles.</li>
+                    <li>Applied K-Means clustering on 1,000+ temperature profiles to optimize High Speed Sintering (3D printing) cycles.</li>
                     <li>Awarded Highly Commended Researcher of the Year, ~1% of 200+ interns.</li>
                 </ul>
                 <div class="experience-tags">
@@ -1687,8 +1713,8 @@
                 <div class="project-type">Eulerity · Product Case Study</div>
                 <h3 class="project-title">Command Center Task List</h3>
                 <p class="project-description">
-                    Authored the PRD for Command Center's task list feature, covering scope, user flows,
-                    and acceptance criteria, for a B2B SaaS marketing platform used by franchise operators.
+                    Authored the PRD for Command Center's task list feature. It covers scope,
+                    user flows, and acceptance criteria for a B2B SaaS platform used by franchise operators.
                 </p>
                 <div class="project-metrics">
                     <div class="metric">
@@ -1707,9 +1733,9 @@
                 <h3 class="project-title">PriorityOS</h3>
                 <p class="project-note">Takes ~5 seconds to load — hosted on a free tier that spins down when idle.</p>
                 <p class="project-description">
-                    Built an AI-powered issue triage platform that classifies incoming issues with
-                    MoSCoW, scores them with RICE, and produces a ranked backlog. Includes AI thematic
-                    clustering, a Value × Effort solution matrix, roadmap generation, and JIRA export.
+                    Built an AI-powered issue triage platform. It classifies issues with MoSCoW
+                    and scores them with RICE. Then it clusters themes, maps a Value × Effort
+                    matrix, and exports a ranked backlog straight to JIRA.
                 </p>
                 <div class="project-metrics">
                     <div class="metric">
@@ -1727,19 +1753,10 @@
                 <div class="project-type">Google Cloud Hackathon · Columbia Business School</div>
                 <h3 class="project-title">Agentic AI Editor</h3>
                 <p class="project-description">
-                    Built a 4-agent multimodal AI editor pipeline, including a sequencer, style analyzer,
-                    quality reviewer, and renderer, using Google APIs in 48 hours. Validated product-market fit
-                    with 200+ users targeting a 50M+ underserved market for editing tools.
+                    Built a 4-agent multimodal AI editor pipeline in 48 hours: a sequencer,
+                    style analyzer, quality reviewer, and renderer, all on Google APIs. Validated
+                    product-market fit with 200+ users in a 50M+ underserved editing-tools market.
                 </p>
-                <video class="project-video" controls preload="metadata">
-                    <source src="agentic-ai-editor-demo.mp4" type="video/mp4">
-                </video>
-                <div class="project-gallery" data-gallery="agentic">
-                    <img src="hackathon-presenting.jpg" alt="Presenting the Agentic AI Editor at the Google Cloud Hackathon" onclick="openGallery('agentic', 0)">
-                    <img src="hackathon-team.jpg" alt="Team photo at the Google Cloud Hackathon, Columbia Business School" onclick="openGallery('agentic', 1)">
-                    <img src="hackathon-crowd.jpg" alt="Hackathon crowd at Columbia Business School with Google" onclick="openGallery('agentic', 2)">
-                    <img src="hackathon-signage.jpg" alt="Build with AI New York Hackathon signage, Columbia Business School and Google" onclick="openGallery('agentic', 3)">
-                </div>
                 <div class="project-metrics">
                     <div class="metric">
                         <div class="metric-value">300+</div>
@@ -1749,6 +1766,15 @@
                         <div class="metric-value">Top 3</div>
                         <div class="metric-label">of 100+ Teams</div>
                     </div>
+                </div>
+                <video class="project-video" controls preload="metadata" style="margin-top: 1.5rem;">
+                    <source src="agentic-ai-editor-demo.mp4" type="video/mp4">
+                </video>
+                <div class="project-gallery" data-gallery="agentic">
+                    <img src="hackathon-presenting.jpg" alt="Presenting the Agentic AI Editor at the Google Cloud Hackathon" onclick="openGallery('agentic', 0)">
+                    <img src="hackathon-team.jpg" alt="Team photo at the Google Cloud Hackathon, Columbia Business School" onclick="openGallery('agentic', 1)">
+                    <img src="hackathon-crowd.jpg" alt="Hackathon crowd at Columbia Business School with Google" onclick="openGallery('agentic', 2)">
+                    <img src="hackathon-signage.jpg" alt="Build with AI New York Hackathon signage, Columbia Business School and Google" onclick="openGallery('agentic', 3)">
                 </div>
             </div>
             <div class="project-card reveal">
@@ -1830,8 +1856,9 @@
                     <div class="institution-logo"><img src="logo-columbia.png" alt="Columbia University logo"></div>
                     <h3 class="education-school">Columbia University</h3>
                 </div>
-                <p class="education-degree">M.S. Technology Management · GPA 4.11/4.0</p>
-                <p class="education-location">New York, USA</p>
+                <p class="education-location">New York, US</p>
+                <p class="education-degree">M.S. Technology Management</p>
+                <p class="education-gpa">GPA 4.11 / 4.33</p>
             </div>
             <div class="education-card reveal">
                 <div class="education-year">2021 — 2025</div>
@@ -1839,8 +1866,9 @@
                     <div class="institution-logo"><img src="logo-sheffield.png" alt="University of Sheffield logo"></div>
                     <h3 class="education-school">University of Sheffield</h3>
                 </div>
-                <p class="education-degree">BEng (Hons) Computer Systems Engineering with a Year in Industry and Study Abroad · GPA 3.71/4.0</p>
                 <p class="education-location">Sheffield, UK</p>
+                <p class="education-degree">BEng (Hons) Computer Systems Engineering, Year in Industry &amp; Study Abroad</p>
+                <p class="education-gpa">GPA 3.71 / 4.0</p>
             </div>
             <div class="education-card reveal">
                 <div class="education-year">2022 — 2023</div>
@@ -1848,17 +1876,17 @@
                     <div class="institution-logo"><img src="logo-ntu.png" alt="Nanyang Technological University logo"></div>
                     <h3 class="education-school">Nanyang Technological University</h3>
                 </div>
-                <p class="education-degree">Exchange Program</p>
                 <p class="education-location">Singapore</p>
+                <p class="education-degree">Exchange Program</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="contact-title">Let's Build Something <span class="highlight">Together</span></h2>
+        <h2 class="contact-title">Got an Idea? Let's <span class="highlight">Ship It</span></h2>
         <p class="contact-subtitle">
-            I am currently building product at Eulerity and open to full-time Product Management
-            opportunities after graduating from Columbia in 2026.
+            I'm building product at Eulerity. I'm open to full-time PM roles
+            after graduating from Columbia in 2026.
         </p>
         <div class="contact-links">
             <a href="mailto:mps2230@columbia.edu" class="contact-link">
@@ -1890,7 +1918,7 @@
     </section>
 
     <footer>
-        <p class="footer-text">© 2026 Mayank Sewatkar. Crafted with precision.</p>
+        <p class="footer-text">© 2026 Mayank Sewatkar.</p>
         <div class="footer-links">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
