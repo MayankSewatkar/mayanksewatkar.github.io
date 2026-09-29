@@ -904,6 +904,22 @@
             padding: 0;
         }
 
+        .project-card[data-card-link] {
+            cursor: pointer;
+        }
+
+        .project-card[data-card-link]:focus-visible {
+            outline: 1px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        .project-note {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin: -0.5rem 0 1.25rem;
+        }
+
         /* Case Study Modal */
         .modal-overlay {
             display: none;
@@ -1667,7 +1683,7 @@
             <div class="section-line"></div>
         </div>
         <div class="projects-grid">
-            <div class="project-card reveal">
+            <div class="project-card reveal" data-card-link="case-study" role="button" tabindex="0" aria-label="Open the Command Center Task List case study">
                 <div class="project-type">Eulerity · Product Case Study</div>
                 <h3 class="project-title">Command Center Task List</h3>
                 <p class="project-description">
@@ -1686,9 +1702,10 @@
                 </div>
                 <button type="button" class="project-link project-link-btn" onclick="openCaseStudy()">View Case Study →</button>
             </div>
-            <div class="project-card reveal">
+            <div class="project-card reveal" data-card-link="https://issue-prioritization-tool.onrender.com" role="link" tabindex="0" aria-label="Open PriorityOS in a new tab">
                 <div class="project-type">Columbia University · AI/ML</div>
                 <h3 class="project-title">PriorityOS</h3>
+                <p class="project-note">Takes ~5 seconds to load — hosted on a free tier that spins down when idle.</p>
                 <p class="project-description">
                     Built an AI-powered issue triage platform that classifies incoming issues with
                     MoSCoW, scores them with RICE, and produces a ranked backlog. Includes AI thematic
@@ -2024,6 +2041,28 @@
             document.getElementById('caseStudyModal').classList.remove('open');
             document.body.style.overflow = '';
         }
+
+        // Whole-card click-through for project cards that link out
+        document.querySelectorAll('.project-card[data-card-link]').forEach((card) => {
+            const target = card.getAttribute('data-card-link');
+            const activate = () => {
+                if (target === 'case-study') {
+                    openCaseStudy();
+                } else {
+                    window.open(target, '_blank', 'noopener');
+                }
+            };
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a, button')) return; // inner link/button already handled it
+                activate();
+            });
+            card.addEventListener('keydown', (e) => {
+                if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a, button')) {
+                    e.preventDefault();
+                    activate();
+                }
+            });
+        });
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
