@@ -466,7 +466,7 @@
         }
 
         .about-text p {
-            color: var(--text-secondary);
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             font-size: 1rem;
         }
@@ -778,6 +778,18 @@
         .project-gallery img:hover {
             border-color: var(--accent);
             opacity: 0.85;
+        }
+
+        .project-gallery-single {
+            grid-template-columns: 1fr;
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .project-gallery-single img {
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top;
         }
 
         .gallery-overlay {
@@ -1748,6 +1760,9 @@
                     </div>
                 </div>
                 <a href="https://issue-prioritization-tool.onrender.com" target="_blank" class="project-link">Try PriorityOS →</a>
+                <div class="project-gallery project-gallery-single" data-gallery="priorityos">
+                    <img src="priorityos-intake-queue.png" alt="PriorityOS issue intake queue, showing MoSCoW-classified issues ready for RICE scoring" onclick="openGallery('priorityos', 0)">
+                </div>
             </div>
             <div class="project-card reveal">
                 <div class="project-type">Google Cloud Hackathon · Columbia Business School</div>
@@ -2110,6 +2125,9 @@
                 { src: 'hackathon-team.jpg', caption: 'The team at the Google Cloud Hackathon, Columbia Business School' },
                 { src: 'hackathon-crowd.jpg', caption: 'Build with AI: New York Hackathon, Columbia Business School x Google' },
                 { src: 'hackathon-signage.jpg', caption: 'Build with AI: New York Hackathon signage' }
+            ],
+            priorityos: [
+                { src: 'priorityos-intake-queue.png', caption: 'PriorityOS issue intake queue — MoSCoW-classified issues ready for RICE scoring' }
             ]
         };
 
