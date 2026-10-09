@@ -888,6 +888,12 @@
             color: var(--accent);
         }
 
+        .metric-sub {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.15rem;
+        }
+
         .metric-label {
             font-size: 0.75rem;
             color: var(--text-muted);
@@ -1011,6 +1017,11 @@
         .modal-section p {
             color: var(--text-secondary);
             font-size: 1rem;
+        }
+
+        .modal-section p + p,
+        .modal-section .prd-flow + p {
+            margin-top: 0.85rem;
         }
 
         .prd-snapshot {
@@ -1792,22 +1803,31 @@
                     <img src="hackathon-signage.jpg" alt="Build with AI New York Hackathon signage, Columbia Business School and Google" onclick="openGallery('agentic', 3)">
                 </div>
             </div>
-            <div class="project-card reveal">
-                <div class="project-type">University of Sheffield</div>
-                <h3 class="project-title">Digital Membership Platform</h3>
+            <div class="project-card reveal" data-card-link="case-study:helixModal" role="button" tabindex="0" aria-label="Open the Haldiram's factory workforce case study">
+                <div class="project-type">Columbia × Helix · Product Strategy Case Study</div>
+                <h3 class="project-title">Paying Only for Work Done: AI for Haldiram's Factories</h3>
                 <p class="project-description">
-                    Built a full-stack digital platform using Java, Spring Boot, and MySQL. Implemented
-                    Spring Security authentication and optimised database queries for performance.
+                    Every Diwali, Haldiram's, India's biggest snack maker, hires thousands of temporary
+                    workers through staffing agencies. It pays each agency for however many people the
+                    agency <em>says</em> turned up, and nobody checks the count. For Helix, an AI startup
+                    whose software counts people on existing security cameras, I worked out where that
+                    gap costs the most money and what Helix should build first.
                 </p>
                 <div class="project-metrics">
                     <div class="metric">
-                        <div class="metric-value">30%</div>
-                        <div class="metric-label">Faster Data Retrieval</div>
+                        <div class="metric-value">3,500</div>
+                        <div class="metric-sub">at the Diwali peak</div>
+                        <div class="metric-label">Temporary Workers</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">100%</div>
-                        <div class="metric-label">Access Security</div>
+                        <div class="metric-value">₹4 lakh</div>
+                        <div class="metric-sub">≈ US$4,200 / month</div>
+                        <div class="metric-label">Paid for 20 Workers Who Never Showed Up</div>
                     </div>
+                </div>
+                <button type="button" class="project-link project-link-btn" onclick="openCaseStudy('helixModal')">View Case Study →</button>
+                <div class="project-gallery project-gallery-single" data-gallery="helix">
+                    <img src="helix-title-slide.png" alt="Title slide: Business Analysis and Strategic Approach, AI-Enabled Contractor Labour Management and Factory Visibility, prepared for Helix" onclick="openGallery('helix', 0)">
                 </div>
             </div>
         </div>
@@ -2022,6 +2042,106 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="helixModal" onclick="if(event.target === this) closeCaseStudy()">
+        <div class="modal">
+            <button type="button" class="modal-close" onclick="closeCaseStudy()" aria-label="Close case study">✕</button>
+            <div class="modal-eyebrow">Columbia × Helix · Product Strategy Case Study</div>
+            <h3>Paying Only for Work Done: AI for Haldiram's Factories</h3>
+            <div class="modal-section">
+                <h4>Context</h4>
+                <p>
+                    <strong>Haldiram's</strong> is India's largest packaged snack company, valued at
+                    about $10 billion. <strong>Helix</strong> is a startup whose AI software watches a
+                    factory's existing security cameras and counts who is on the floor. Helix wanted
+                    to sell this to Haldiram's. Our Columbia team was brought in to work out where the
+                    software would actually make a difference, and what Helix should build first.
+                </p>
+            </div>
+            <div class="modal-section">
+                <h4>The Problem</h4>
+                <p>
+                    Around Diwali, India's biggest festival, Haldiram's makes three times its normal
+                    output for about two months. To keep up, it brings in thousands of temporary
+                    workers through outside agencies, up to 3,500 people at the peak.
+                </p>
+                <p>
+                    The agency sends a bill based on how many workers <em>it says</em> showed up, and
+                    the factory pays it. Nobody checks whether those people came, how long they worked,
+                    or how much they produced.
+                </p>
+                <p>
+                    <strong>What that costs:</strong> a temporary worker in India earns about ₹20,000
+                    a month (roughly US$210). So if the agency bills for just 20 people who never
+                    turned up, Haldiram's loses about <strong>₹4 lakh a month</strong>. That's about
+                    <strong>US$4,200</strong> at today's exchange rate, and in India it buys what
+                    roughly US$18,000 would buy in the US. (A lakh is 100,000 rupees.) On top of
+                    that, Indian law still holds Haldiram's responsible for those workers' wages if the
+                    agency gets them wrong.
+                </p>
+            </div>
+            <div class="modal-section">
+                <h4>What We Found</h4>
+                <p>
+                    <strong>The money leaks at the billing step.</strong> When flour or oil arrives,
+                    someone weighs and checks it before paying. When workers arrive, nobody counts them.
+                    So the most valuable first use of the cameras isn't watching people work. It's
+                    counting who came in and checking that against the agency's bill.
+                </p>
+                <p>
+                    <strong>Alerts were being measured in the wrong place.</strong> Helix's plan was to
+                    send a supervisor a WhatsApp alert within 3 seconds when an area is under-staffed.
+                    But a fast alert is useless if nobody acts on it, and nothing tracked whether a
+                    supervisor did. We suggested measuring how long it takes a supervisor to fix the
+                    problem, not just how fast the alert arrives.
+                </p>
+            </div>
+            <div class="modal-section">
+                <h4>What We Recommended</h4>
+                <div class="prd-flow">
+                    <div class="prd-flow-step">
+                        <span class="prd-flow-num">1</span>
+                        <span class="prd-flow-label">Check every agency bill against the camera count before paying</span>
+                    </div>
+                    <div class="prd-flow-step">
+                        <span class="prd-flow-num">2</span>
+                        <span class="prd-flow-label">Track how fast supervisors act on alerts</span>
+                    </div>
+                    <div class="prd-flow-step">
+                        <span class="prd-flow-num">3</span>
+                        <span class="prd-flow-label">Measure snacks made per hour of paid labour</span>
+                    </div>
+                    <div class="prd-flow-step">
+                        <span class="prd-flow-num">4</span>
+                        <span class="prd-flow-label">Let staff update area maps when rooms change use</span>
+                    </div>
+                </div>
+                <p>
+                    Start small: test bill-checking in one area of the factory this festive season,
+                    then roll it out to the whole factory before next year's Diwali rush.
+                </p>
+            </div>
+            <div class="modal-section">
+                <h4>Doing It Fairly</h4>
+                <p>
+                    Cameras on workers raise real concerns, so we built safeguards into the plan.
+                    Workers are told in their own language and asked for consent. A person reviews every
+                    flag before anything happens, because face recognition makes more mistakes on people
+                    wearing hairnets and masks. Results are reported for teams and shifts, not
+                    individuals, and workers can challenge a record. No one is disciplined automatically.
+                </p>
+            </div>
+            <div class="modal-section">
+                <h4>My Role</h4>
+                <p>
+                    I mapped where the money was being lost across the factory's operations, which
+                    is how we landed on bill-checking as the first priority. I also wrote and presented
+                    the final recommendations and rollout plan. Team of three with Jiacheng Ma and
+                    Margaret Yan, advised by Professor Maria Massei-Rosato.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div class="gallery-overlay" id="galleryOverlay" onclick="if(event.target === this) closeGallery()">
         <div class="gallery-viewer">
             <button type="button" class="gallery-close" onclick="closeGallery()" aria-label="Close gallery">✕</button>
@@ -2075,13 +2195,13 @@
         });
 
         // Case study modal
-        function openCaseStudy() {
-            document.getElementById('caseStudyModal').classList.add('open');
+        function openCaseStudy(id = 'caseStudyModal') {
+            document.getElementById(id).classList.add('open');
             document.body.style.overflow = 'hidden';
         }
 
         function closeCaseStudy() {
-            document.getElementById('caseStudyModal').classList.remove('open');
+            document.querySelectorAll('.modal-overlay.open').forEach((m) => m.classList.remove('open'));
             document.body.style.overflow = '';
         }
 
@@ -2089,8 +2209,8 @@
         document.querySelectorAll('.project-card[data-card-link]').forEach((card) => {
             const target = card.getAttribute('data-card-link');
             const activate = () => {
-                if (target === 'case-study') {
-                    openCaseStudy();
+                if (target.startsWith('case-study')) {
+                    openCaseStudy(target.split(':')[1]);
                 } else {
                     window.open(target, '_blank', 'noopener');
                 }
@@ -2128,6 +2248,9 @@
             ],
             priorityos: [
                 { src: 'priorityos-intake-queue.png', caption: 'PriorityOS issue intake queue — MoSCoW-classified issues ready for RICE scoring' }
+            ],
+            helix: [
+                { src: 'helix-title-slide.png', caption: 'Business Analysis and Strategic Approach — presented to Helix, Columbia Technology Management' }
             ]
         };
 
