@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayank Sewatkar | Technology & Product Leader</title>
+    <title>Mayank Sewatkar | Product Manager</title>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Archivo:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -1490,16 +1490,200 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ---- Redesign ---- */
+        /* Alternate section backgrounds for the new order */
+        .projects, .education { background: var(--bg-primary); }
+        #experience, .contact { background: var(--bg-secondary); }
+        .logo { font-size: 1.25rem; }
+
+        .hero {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* The headshot now opens the About copy, so drop the drop cap */
+        .about-text p:first-of-type::first-letter {
+            float: none;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            margin: 0;
+            color: inherit;
+        }
+
+        .hero-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.1s;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.08;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.75rem;
+            text-wrap: balance;
+        }
+
+        .hero-description {
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin-bottom: 2.5rem;
+        }
+
+        .proof-strip {
+            width: 100%;
+            max-width: 1400px;
+            margin: 5rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: baseline;
+            gap: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        .proof-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .proof-strip ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 2.75rem;
+        }
+
+        .proof-strip li {
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding: 2rem;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-value {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .stat-context {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .project-card--featured,
+        .project-card--wide {
+            grid-column: 1 / -1;
+        }
+
+        .project-card--featured {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 0 3rem;
+            align-items: start;
+        }
+
+        .project-card--featured .project-title { font-size: 2.25rem; }
+        .project-card--featured .project-video { margin-bottom: 0; }
+
+        .project-card--featured .project-gallery {
+            grid-column: 1 / -1;
+            margin: 2rem 0 0;
+        }
+
+        .project-card--featured .project-gallery img { aspect-ratio: 4 / 3; }
+
+        .project-card--wide {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .project-card--wide .project-description { margin-bottom: 0; }
+
+        @media (max-width: 1200px) {
+            /* Lead with the statement; timeline follows */
+            .hero-container { flex-direction: column; }
+            .hero-image-wrapper { margin: 1rem auto 0; }
+            .timeline { text-align: left; }
+            .hero-description { margin-left: auto; margin-right: auto; }
+            .proof-strip { justify-content: center; }
+        }
+
+        @media (max-width: 1024px) {
+            .project-card--featured,
+            .project-card--wide {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .project-card--featured .project-gallery { margin-top: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .section-title { line-height: 1.15; }
+            .hero h1 { font-size: 2.25rem; }
+            .proof-strip {
+                align-items: center;
+                text-align: center;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 3rem;
+            }
+            .proof-strip ul { gap: 0.5rem 1.5rem; justify-content: center; }
+            .proof-strip li { font-size: 1rem; }
+            .stat { padding: 1.25rem; }
+            .stat-value { font-size: 2.25rem; }
+            .project-card--featured .project-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
     <nav id="navbar">
-        <div class="logo">M<span>.</span>S</div>
+        <div class="logo">Mayank Sewatkar<span>.</span></div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1509,19 +1693,16 @@
         <div class="hero-accent"></div>
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Mayank <span class="highlight">Sewatkar</span></h1>
+                <p class="hero-eyebrow">Mayank Sewatkar · Product Manager</p>
+                <h1>Engineer turned PM. I ship <span class="highlight">AI products</span>, not just roadmaps.</h1>
                 <p class="hero-description">
-                    I'm a Product Manager who ships AI features, not just roadmaps.
-                    Engineer-turned-PM: I build what I plan, fast.
+                    Product Manager at Eulerity and M.S. candidate at Columbia. I started out
+                    writing suspension and cruise-control software at Jaguar Land Rover. Now I
+                    build AI agents for B2B SaaS.
                 </p>
-                <p class="hero-label">Product Management · AI/ML · Strategy</p>
-                <div class="now-badge">
-                    <span class="now-dot"></span>
-                    Recent: Shipped internal platform efficiency changes and GEO strategy at Eulerity
-                </div>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                    <a href="#projects" class="btn btn-secondary">See What I've Shipped</a>
+                    <a href="#projects" class="btn btn-primary">See My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
@@ -1565,6 +1746,17 @@
                 </div>
             </div>
         </div>
+        <div class="proof-strip">
+            <span class="proof-label">Built at</span>
+            <ul>
+                <li>Eulerity</li>
+                <li>Jaguar Land Rover</li>
+                <li>Columbia University</li>
+                <li>Google Cloud Hackathon</li>
+                <li>University of Sheffield</li>
+                <li>NTU Singapore</li>
+            </ul>
+        </div>
     </section>
 
     <section id="about" class="about">
@@ -1586,68 +1778,140 @@
                 at Columbia. Outside of class, I lead business development for the Venture
                 Capital Club and handle marketing for the Product Management Club.</p>
             </div>
-            <div class="metrics-ticker reveal">
-                <div class="ticker-track">
-                    <div class="ticker-item">
-                        <span class="ticker-value">100K+</span>
-                        <span class="ticker-label">Vehicles Impacted</span>
-                        <span class="ticker-context">Jaguar Land Rover</span>
+            <div class="stat-grid reveal">
+                <div class="stat">
+                    <span class="stat-value">100K+</span>
+                    <span class="stat-label">Vehicles Impacted</span>
+                    <span class="stat-context">Jaguar Land Rover</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">10+</span>
+                    <span class="stat-label">Features Shipped in 3 Months</span>
+                    <span class="stat-context">Eulerity</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">30%</span>
+                    <span class="stat-label">Engagement Increase</span>
+                    <span class="stat-context">Eulerity</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">Top 3</span>
+                    <span class="stat-label">of 100+ Teams</span>
+                    <span class="stat-context">Google Cloud Hackathon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Selected Work</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card project-card--featured reveal">
+                <div class="featured-text">
+                <div class="project-type">Google Cloud Hackathon · Columbia Business School</div>
+                <h3 class="project-title">Agentic AI Editor</h3>
+                <p class="project-description">
+                    Built a 4-agent multimodal AI editor pipeline in 48 hours: a sequencer,
+                    style analyzer, quality reviewer, and renderer, all on Google APIs. Validated
+                    product-market fit with 200+ users in a 50M+ underserved editing-tools market.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <div class="metric-value">300+</div>
+                        <div class="metric-label">Demo Users</div>
                     </div>
-                    <div class="ticker-item">
-                        <span class="ticker-value">10+</span>
-                        <span class="ticker-label">Features Shipped</span>
-                        <span class="ticker-context">Eulerity</span>
+                    <div class="metric">
+                        <div class="metric-value">Top 3</div>
+                        <div class="metric-label">of 100+ Teams</div>
                     </div>
-                    <div class="ticker-item">
-                        <span class="ticker-value">30%</span>
-                        <span class="ticker-label">Engagement Increase</span>
-                        <span class="ticker-context">Eulerity</span>
+                </div>
+                </div>
+                <video class="project-video" controls preload="metadata">
+                    <source src="agentic-ai-editor-demo.mp4" type="video/mp4">
+                </video>
+                <div class="project-gallery" data-gallery="agentic">
+                    <img src="hackathon-presenting.jpg" alt="Presenting the Agentic AI Editor at the Google Cloud Hackathon" onclick="openGallery('agentic', 0)">
+                    <img src="hackathon-team.jpg" alt="Team photo at the Google Cloud Hackathon, Columbia Business School" onclick="openGallery('agentic', 1)">
+                    <img src="hackathon-crowd.jpg" alt="Hackathon crowd at Columbia Business School with Google" onclick="openGallery('agentic', 2)">
+                    <img src="hackathon-signage.jpg" alt="Build with AI New York Hackathon signage, Columbia Business School and Google" onclick="openGallery('agentic', 3)">
+                </div>
+            </div>
+            <div class="project-card reveal" data-card-link="case-study:helixModal" role="button" tabindex="0" aria-label="Open the Haldiram's factory workforce case study">
+                <div class="project-type">Columbia × Helix · Product Strategy Case Study</div>
+                <h3 class="project-title">Paying Only for Work Done: AI for Haldiram's Factories</h3>
+                <p class="project-description">
+                    Every Diwali, Haldiram's, India's biggest snack maker, hires thousands of temporary
+                    workers through staffing agencies. It pays each agency for however many people the
+                    agency <em>says</em> turned up, and nobody checks the count. For Helix, an AI startup
+                    whose software counts people on existing security cameras, I worked out where that
+                    gap costs the most money and what Helix should build first.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <div class="metric-value">3,500</div>
+                        <div class="metric-sub">at the Diwali peak</div>
+                        <div class="metric-label">Temporary Workers</div>
                     </div>
-                    <div class="ticker-item">
-                        <span class="ticker-value">4</span>
-                        <span class="ticker-label">Countries Studied & Worked</span>
-                        <span class="ticker-context">India, UK, Singapore, USA</span>
+                    <div class="metric">
+                        <div class="metric-value">₹4 lakh</div>
+                        <div class="metric-sub">≈ US$4,200 / month</div>
+                        <div class="metric-label">Paid for 20 Workers Who Never Showed Up</div>
                     </div>
-                    <div class="ticker-item">
-                        <span class="ticker-value">300+</span>
-                        <span class="ticker-label">Hackathon Demo Users</span>
-                        <span class="ticker-context">Google Cloud Hackathon, CBS</span>
+                </div>
+                <button type="button" class="project-link project-link-btn" onclick="openCaseStudy('helixModal')">View Case Study →</button>
+                <div class="project-gallery project-gallery-single" data-gallery="helix">
+                    <img src="helix-title-slide.png" alt="Title slide: Business Analysis and Strategic Approach, AI-Enabled Contractor Labour Management and Factory Visibility, prepared for Helix" onclick="openGallery('helix', 0)">
+                </div>
+            </div>
+            <div class="project-card reveal" data-card-link="https://issue-prioritization-tool.onrender.com" role="link" tabindex="0" aria-label="Open PriorityOS in a new tab">
+                <div class="project-type">Columbia University · AI/ML</div>
+                <h3 class="project-title">PriorityOS</h3>
+                <p class="project-note">Takes ~5 seconds to load — hosted on a free tier that spins down when idle.</p>
+                <p class="project-description">
+                    Built an AI-powered issue triage platform. It classifies issues with MoSCoW
+                    and scores them with RICE. Then it clusters themes, maps a Value × Effort
+                    matrix, and exports a ranked backlog straight to JIRA.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <div class="metric-value">50–80%</div>
+                        <div class="metric-label">Noise Removed</div>
                     </div>
-                    <div class="ticker-item">
-                        <span class="ticker-value">Top 3</span>
-                        <span class="ticker-label">of 100+ Teams</span>
-                        <span class="ticker-context">Google Cloud Hackathon, CBS</span>
+                    <div class="metric">
+                        <div class="metric-value">AI</div>
+                        <div class="metric-label">Classified & Ranked</div>
                     </div>
-                    <div class="ticker-item" aria-hidden="true">
-                        <span class="ticker-value">100K+</span>
-                        <span class="ticker-label">Vehicles Impacted</span>
-                        <span class="ticker-context">Jaguar Land Rover</span>
+                </div>
+                <a href="https://issue-prioritization-tool.onrender.com" target="_blank" class="project-link">Try PriorityOS →</a>
+                <div class="project-gallery project-gallery-single" data-gallery="priorityos">
+                    <img src="priorityos-intake-queue.png" alt="PriorityOS issue intake queue, showing MoSCoW-classified issues ready for RICE scoring" onclick="openGallery('priorityos', 0)">
+                </div>
+            </div>
+            <div class="project-card project-card--wide reveal" data-card-link="case-study" role="button" tabindex="0" aria-label="Open the Command Center Task List case study">
+                <div class="wide-text">
+                <div class="project-type">Eulerity · Product Case Study</div>
+                <h3 class="project-title">Command Center Task List</h3>
+                <p class="project-description">
+                    Authored the PRD for Command Center's task list feature. It covers scope,
+                    user flows, and acceptance criteria for a B2B SaaS platform used by franchise operators.
+                </p>
+                </div>
+                <div class="wide-side">
+                <div class="project-metrics">
+                    <div class="metric">
+                        <div class="metric-value">6–8</div>
+                        <div class="metric-label">Tasks per Checklist</div>
                     </div>
-                    <div class="ticker-item" aria-hidden="true">
-                        <span class="ticker-value">10+</span>
-                        <span class="ticker-label">Features Shipped</span>
-                        <span class="ticker-context">Eulerity</span>
+                    <div class="metric">
+                        <div class="metric-value">15%</div>
+                        <div class="metric-label">Target Cycle Time ↓</div>
                     </div>
-                    <div class="ticker-item" aria-hidden="true">
-                        <span class="ticker-value">30%</span>
-                        <span class="ticker-label">Engagement Increase</span>
-                        <span class="ticker-context">Eulerity</span>
-                    </div>
-                    <div class="ticker-item" aria-hidden="true">
-                        <span class="ticker-value">4</span>
-                        <span class="ticker-label">Countries Studied & Worked</span>
-                        <span class="ticker-context">India, UK, Singapore, USA</span>
-                    </div>
-                    <div class="ticker-item" aria-hidden="true">
-                        <span class="ticker-value">300+</span>
-                        <span class="ticker-label">Hackathon Demo Users</span>
-                        <span class="ticker-context">Google Cloud Hackathon, CBS</span>
-                    </div>
-                    <div class="ticker-item" aria-hidden="true">
-                        <span class="ticker-value">Top 3</span>
-                        <span class="ticker-label">of 100+ Teams</span>
-                        <span class="ticker-context">Google Cloud Hackathon, CBS</span>
-                    </div>
+                </div>
+                <button type="button" class="project-link project-link-btn" onclick="openCaseStudy()">View Case Study →</button>
                 </div>
             </div>
         </div>
@@ -1655,7 +1919,7 @@
 
     <section id="experience">
         <div class="section-header">
-            <span class="section-number">02</span>
+            <span class="section-number">03</span>
             <h2 class="section-title">Experience</h2>
             <div class="section-line"></div>
         </div>
@@ -1747,162 +2011,9 @@
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <div class="section-header">
-            <span class="section-number">03</span>
-            <h2 class="section-title">Projects</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card reveal">
-                <div class="project-type">Google Cloud Hackathon · Columbia Business School</div>
-                <h3 class="project-title">Agentic AI Editor</h3>
-                <p class="project-description">
-                    Built a 4-agent multimodal AI editor pipeline in 48 hours: a sequencer,
-                    style analyzer, quality reviewer, and renderer, all on Google APIs. Validated
-                    product-market fit with 200+ users in a 50M+ underserved editing-tools market.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric">
-                        <div class="metric-value">300+</div>
-                        <div class="metric-label">Demo Users</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">Top 3</div>
-                        <div class="metric-label">of 100+ Teams</div>
-                    </div>
-                </div>
-                <video class="project-video" controls preload="metadata" style="margin-top: 1.5rem;">
-                    <source src="agentic-ai-editor-demo.mp4" type="video/mp4">
-                </video>
-                <div class="project-gallery" data-gallery="agentic">
-                    <img src="hackathon-presenting.jpg" alt="Presenting the Agentic AI Editor at the Google Cloud Hackathon" onclick="openGallery('agentic', 0)">
-                    <img src="hackathon-team.jpg" alt="Team photo at the Google Cloud Hackathon, Columbia Business School" onclick="openGallery('agentic', 1)">
-                    <img src="hackathon-crowd.jpg" alt="Hackathon crowd at Columbia Business School with Google" onclick="openGallery('agentic', 2)">
-                    <img src="hackathon-signage.jpg" alt="Build with AI New York Hackathon signage, Columbia Business School and Google" onclick="openGallery('agentic', 3)">
-                </div>
-            </div>
-            <div class="project-card reveal" data-card-link="case-study:helixModal" role="button" tabindex="0" aria-label="Open the Haldiram's factory workforce case study">
-                <div class="project-type">Columbia × Helix · Product Strategy Case Study</div>
-                <h3 class="project-title">Paying Only for Work Done: AI for Haldiram's Factories</h3>
-                <p class="project-description">
-                    Every Diwali, Haldiram's, India's biggest snack maker, hires thousands of temporary
-                    workers through staffing agencies. It pays each agency for however many people the
-                    agency <em>says</em> turned up, and nobody checks the count. For Helix, an AI startup
-                    whose software counts people on existing security cameras, I worked out where that
-                    gap costs the most money and what Helix should build first.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric">
-                        <div class="metric-value">3,500</div>
-                        <div class="metric-sub">at the Diwali peak</div>
-                        <div class="metric-label">Temporary Workers</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">₹4 lakh</div>
-                        <div class="metric-sub">≈ US$4,200 / month</div>
-                        <div class="metric-label">Paid for 20 Workers Who Never Showed Up</div>
-                    </div>
-                </div>
-                <button type="button" class="project-link project-link-btn" onclick="openCaseStudy('helixModal')">View Case Study →</button>
-                <div class="project-gallery project-gallery-single" data-gallery="helix">
-                    <img src="helix-title-slide.png" alt="Title slide: Business Analysis and Strategic Approach, AI-Enabled Contractor Labour Management and Factory Visibility, prepared for Helix" onclick="openGallery('helix', 0)">
-                </div>
-            </div>
-            <div class="project-card reveal" data-card-link="https://issue-prioritization-tool.onrender.com" role="link" tabindex="0" aria-label="Open PriorityOS in a new tab">
-                <div class="project-type">Columbia University · AI/ML</div>
-                <h3 class="project-title">PriorityOS</h3>
-                <p class="project-note">Takes ~5 seconds to load — hosted on a free tier that spins down when idle.</p>
-                <p class="project-description">
-                    Built an AI-powered issue triage platform. It classifies issues with MoSCoW
-                    and scores them with RICE. Then it clusters themes, maps a Value × Effort
-                    matrix, and exports a ranked backlog straight to JIRA.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric">
-                        <div class="metric-value">50–80%</div>
-                        <div class="metric-label">Noise Removed</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">AI</div>
-                        <div class="metric-label">Classified & Ranked</div>
-                    </div>
-                </div>
-                <a href="https://issue-prioritization-tool.onrender.com" target="_blank" class="project-link">Try PriorityOS →</a>
-                <div class="project-gallery project-gallery-single" data-gallery="priorityos">
-                    <img src="priorityos-intake-queue.png" alt="PriorityOS issue intake queue, showing MoSCoW-classified issues ready for RICE scoring" onclick="openGallery('priorityos', 0)">
-                </div>
-            </div>
-            <div class="project-card reveal" data-card-link="case-study" role="button" tabindex="0" aria-label="Open the Command Center Task List case study">
-                <div class="project-type">Eulerity · Product Case Study</div>
-                <h3 class="project-title">Command Center Task List</h3>
-                <p class="project-description">
-                    Authored the PRD for Command Center's task list feature. It covers scope,
-                    user flows, and acceptance criteria for a B2B SaaS platform used by franchise operators.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric">
-                        <div class="metric-value">6–8</div>
-                        <div class="metric-label">Tasks per Checklist</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">15%</div>
-                        <div class="metric-label">Target Cycle Time ↓</div>
-                    </div>
-                </div>
-                <button type="button" class="project-link project-link-btn" onclick="openCaseStudy()">View Case Study →</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="section-header">
-            <span class="section-number">04</span>
-            <h2 class="section-title">Skills</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="skills-container">
-            <div class="skill-category reveal">
-                <h3>Technical</h3>
-                <ul class="skill-list">
-                    <li>Python, Java, SQL</li>
-                    <li>MATLAB & Simulink</li>
-                    <li>CarMaker & dSPACE</li>
-                    <li>Vector Tools (CAN Networks)</li>
-                    <li>Embedded Systems & Controls</li>
-                    <li>APIs & Integrations</li>
-                    <li>Tableau, JIRA & Confluence</li>
-                    <li>Git & Version Control</li>
-                </ul>
-            </div>
-            <div class="skill-category reveal">
-                <h3>Product & Strategy</h3>
-                <ul class="skill-list">
-                    <li>Roadmap Planning & PRDs</li>
-                    <li>Stakeholder Management</li>
-                    <li>OKRs & KPIs</li>
-                    <li>A/B Testing</li>
-                    <li>Agile & Scrum</li>
-                    <li>Go-to-Market Strategy</li>
-                </ul>
-            </div>
-            <div class="skill-category reveal">
-                <h3>AI / ML</h3>
-                <ul class="skill-list">
-                    <li>Agentic AI Pipelines</li>
-                    <li>Multimodal LLMs</li>
-                    <li>Prompt Engineering & RAG</li>
-                    <li>MLOps & NLP</li>
-                    <li>Generative Engine Optimization</li>
-                    <li>Data Pipelines & Simulation</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <section id="education" class="education">
         <div class="section-header">
-            <span class="section-number">05</span>
+            <span class="section-number">04</span>
             <h2 class="section-title">Education</h2>
             <div class="section-line"></div>
         </div>
