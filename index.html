@@ -453,6 +453,27 @@
             margin-right: auto;
         }
 
+        /* About headshot */
+        .about-photo {
+            float: left;
+            width: 200px;
+            margin: 0.35rem 2rem 1rem 0;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            box-shadow: 10px 10px 0 var(--accent-subtle);
+        }
+        .about-photo img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: 50% 15%;
+            border-radius: 6px;
+        }
+        @media (max-width: 768px) {
+            .about-photo { float: none; width: 160px; margin: 0 0 1.5rem; }
+        }
+
         /* About Section */
         .about {
             background: var(--bg-secondary);
@@ -1554,6 +1575,7 @@
         </div>
         <div class="about-grid">
             <div class="about-text">
+                <figure class="about-photo"><img src="headshot.jpg" alt="Mayank Sewatkar"></figure>
                 <p>I've lived and worked across four countries, and each move has sharpened
                 my ability to solve problems from different perspectives. I completed school
                 in India, earned my undergraduate degree in Sheffield, and spent an exchange
@@ -1732,49 +1754,6 @@
             <div class="section-line"></div>
         </div>
         <div class="projects-grid">
-            <div class="project-card reveal" data-card-link="case-study" role="button" tabindex="0" aria-label="Open the Command Center Task List case study">
-                <div class="project-type">Eulerity · Product Case Study</div>
-                <h3 class="project-title">Command Center Task List</h3>
-                <p class="project-description">
-                    Authored the PRD for Command Center's task list feature. It covers scope,
-                    user flows, and acceptance criteria for a B2B SaaS platform used by franchise operators.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric">
-                        <div class="metric-value">6–8</div>
-                        <div class="metric-label">Tasks per Checklist</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">15%</div>
-                        <div class="metric-label">Target Cycle Time ↓</div>
-                    </div>
-                </div>
-                <button type="button" class="project-link project-link-btn" onclick="openCaseStudy()">View Case Study →</button>
-            </div>
-            <div class="project-card reveal" data-card-link="https://issue-prioritization-tool.onrender.com" role="link" tabindex="0" aria-label="Open PriorityOS in a new tab">
-                <div class="project-type">Columbia University · AI/ML</div>
-                <h3 class="project-title">PriorityOS</h3>
-                <p class="project-note">Takes ~5 seconds to load — hosted on a free tier that spins down when idle.</p>
-                <p class="project-description">
-                    Built an AI-powered issue triage platform. It classifies issues with MoSCoW
-                    and scores them with RICE. Then it clusters themes, maps a Value × Effort
-                    matrix, and exports a ranked backlog straight to JIRA.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric">
-                        <div class="metric-value">50–80%</div>
-                        <div class="metric-label">Noise Removed</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">AI</div>
-                        <div class="metric-label">Classified & Ranked</div>
-                    </div>
-                </div>
-                <a href="https://issue-prioritization-tool.onrender.com" target="_blank" class="project-link">Try PriorityOS →</a>
-                <div class="project-gallery project-gallery-single" data-gallery="priorityos">
-                    <img src="priorityos-intake-queue.png" alt="PriorityOS issue intake queue, showing MoSCoW-classified issues ready for RICE scoring" onclick="openGallery('priorityos', 0)">
-                </div>
-            </div>
             <div class="project-card reveal">
                 <div class="project-type">Google Cloud Hackathon · Columbia Business School</div>
                 <h3 class="project-title">Agentic AI Editor</h3>
@@ -1829,6 +1808,49 @@
                 <div class="project-gallery project-gallery-single" data-gallery="helix">
                     <img src="helix-title-slide.png" alt="Title slide: Business Analysis and Strategic Approach, AI-Enabled Contractor Labour Management and Factory Visibility, prepared for Helix" onclick="openGallery('helix', 0)">
                 </div>
+            </div>
+            <div class="project-card reveal" data-card-link="https://issue-prioritization-tool.onrender.com" role="link" tabindex="0" aria-label="Open PriorityOS in a new tab">
+                <div class="project-type">Columbia University · AI/ML</div>
+                <h3 class="project-title">PriorityOS</h3>
+                <p class="project-note">Takes ~5 seconds to load — hosted on a free tier that spins down when idle.</p>
+                <p class="project-description">
+                    Built an AI-powered issue triage platform. It classifies issues with MoSCoW
+                    and scores them with RICE. Then it clusters themes, maps a Value × Effort
+                    matrix, and exports a ranked backlog straight to JIRA.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <div class="metric-value">50–80%</div>
+                        <div class="metric-label">Noise Removed</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">AI</div>
+                        <div class="metric-label">Classified & Ranked</div>
+                    </div>
+                </div>
+                <a href="https://issue-prioritization-tool.onrender.com" target="_blank" class="project-link">Try PriorityOS →</a>
+                <div class="project-gallery project-gallery-single" data-gallery="priorityos">
+                    <img src="priorityos-intake-queue.png" alt="PriorityOS issue intake queue, showing MoSCoW-classified issues ready for RICE scoring" onclick="openGallery('priorityos', 0)">
+                </div>
+            </div>
+            <div class="project-card reveal" data-card-link="case-study" role="button" tabindex="0" aria-label="Open the Command Center Task List case study">
+                <div class="project-type">Eulerity · Product Case Study</div>
+                <h3 class="project-title">Command Center Task List</h3>
+                <p class="project-description">
+                    Authored the PRD for Command Center's task list feature. It covers scope,
+                    user flows, and acceptance criteria for a B2B SaaS platform used by franchise operators.
+                </p>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <div class="metric-value">6–8</div>
+                        <div class="metric-label">Tasks per Checklist</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">15%</div>
+                        <div class="metric-label">Target Cycle Time ↓</div>
+                    </div>
+                </div>
+                <button type="button" class="project-link project-link-btn" onclick="openCaseStudy()">View Case Study →</button>
             </div>
         </div>
     </section>
